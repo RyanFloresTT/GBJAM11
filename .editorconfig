@@ -1,0 +1,20 @@
+# Top-most EditorConfig file
+root = true
+
+# C# files
+[*.cs]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+
+# K&R bracing style
+csharp_new_line_before_open_brace = none
+csharp_new_line_before_else = false
+csharp_new_line_before_catch = false
+csharp_new_line_before_finally = false
+csharp_new_line_before_members_in_object_initializers = false
+csharp_new_line_before_members_in_anonymous_types = false
+
+# Other C# formatting rules
+csharp_preserve_single_line_blocks = true
+csharp_preserve_single_line_statements = true
