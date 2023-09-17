@@ -15,7 +15,11 @@ public class Player : MonoBehaviour, IHaveHealth
     }
 
     public void ModifyHealth(int h) {
-        Health += h;
+        if (h >= 0) {
+            Health = Health + h > MaxHealth ? MaxHealth : Health += h;
+        } else {
+            Health += h;
+        }
         OnPlayerHealthUpdate?.Invoke(Health);
         if (Health <= 0) { OnDeath(); }
     }
