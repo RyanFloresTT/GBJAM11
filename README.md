@@ -19,8 +19,8 @@ Hello and welcome to our submission for GBJAM11. We're excited to have had the o
 ### Team Members
 - **[Team Member 1's Name]()** - *Game Designer*
 - **[Team Member 2's Name]()** - *Graphic Designer*
-- **[Team Member 3's Name]()** - *Composer & Sound Designer*
-- **[Emily S. Behar](https://emilysbehar.bandcamp.com)** - *Developer*
+- **[Emily S. Behar](https://emilysbehar.bandcamp.com)** - *Composer & Sound Designer*
+- **[Team Member 4's Name]()** - *Developer*
 - **[Ryan Flores](https://github.com/RyanFloresTT)** - *Developer*
 
 ## Game Design
