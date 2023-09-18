@@ -23,7 +23,7 @@ public class MusicManagerSO : ScriptableObject {
     private bool initialized = false;
 
     private double clipDuration(AudioClip clip) {
-        return (double)(clip.samples) / (double)clip.frequency;
+        return clip.samples / clip.frequency;
     }
 
     public void Initialize() {

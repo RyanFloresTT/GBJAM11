@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,20 +29,31 @@ public class MusicPlayer : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+
         musicData.Initialize();
-        mainSource.loop = true;
     }
 
-    /*private void Start() {
-         StartCoroutine(PlaySong(SongName.Battle));
-    }*/
+    /*
+        Remove this after testing
+    */
+    private void Start() {
+        StartCoroutine(PlaySongAfterDelay());
+    }
+
+    private IEnumerator PlaySongAfterDelay() {
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(PlaySong(SongName.Battle));
+    }
+    /*
+        End remove this after testing
+    */
 
     private double getIntroPlaytime() {
-        return ((double)introSource.timeSamples / introSource.clip.frequency);
+        return (double)introSource.timeSamples / introSource.clip.frequency;
     }
 
     private void Update() {
-        if (introSource.isPlaying) {
+        if (currentTrack.Main != null && currentTrack.mainDuration > 0 && introSource.isPlaying) {
             mainSource.SetScheduledStartTime(AudioSettings.dspTime + currentTrack.introDuration - getIntroPlaytime());
         }
     }
