@@ -48,7 +48,7 @@ public class MusicPlayer : MonoBehaviour {
 
     public IEnumerator PlaySong(SongName song) {
         // Stop the current song if any
-        StopCurrentSong();
+        yield return StartCoroutine(StopCurrentSong());
 
         // Fetch the audio files
         MusicTrack track = musicData.FetchSong(song);
