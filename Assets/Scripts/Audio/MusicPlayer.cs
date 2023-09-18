@@ -32,9 +32,9 @@ public class MusicPlayer : MonoBehaviour {
         mainSource.loop = true;
     }
 
-    private void Start() {
+    /*private void Start() {
          StartCoroutine(PlaySong(SongName.Battle));
-    }
+    }*/
 
     private double getIntroPlaytime() {
         return ((double)introSource.timeSamples / introSource.clip.frequency);
