@@ -27,6 +27,8 @@ public class MusicManagerSO : ScriptableObject {
     }
 
     public void Initialize() {
+        if (initialized) return;
+
         for (int i = 0; i < musicList.Count; i++) {
             var track = musicList[i];
             track.introDuration = clipDuration(track.Intro);
