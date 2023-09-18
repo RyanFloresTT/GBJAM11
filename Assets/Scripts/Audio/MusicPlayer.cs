@@ -20,8 +20,6 @@ public class MusicPlayer : MonoBehaviour {
     // State
     private MusicTrack currentTrack;
 
-    private double scheduledTime;
-
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -36,9 +34,9 @@ public class MusicPlayer : MonoBehaviour {
     /*
         Remove this after testing
     */
-    private void Start() {
+    /*private void Start() {
         StartCoroutine(PlaySongAfterDelay());
-    }
+    }*/
 
     private IEnumerator PlaySongAfterDelay() {
         yield return new WaitForSeconds(5f);
