@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,6 @@ public class MusicPlayer : MonoBehaviour {
     // State
     private MusicTrack currentTrack;
 
-    private double scheduledTime;
-
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -28,11 +27,34 @@ public class MusicPlayer : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+
+        musicData.Initialize();
     }
 
-    // private void Start() {
-    //     StartCoroutine(PlaySong(SongName.Battle));
-    // }
+    /*
+        Remove this after testing
+    */
+    /*private void Start() {
+        StartCoroutine(PlaySongAfterDelay());
+    }*/
+
+    private IEnumerator PlaySongAfterDelay() {
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(PlaySong(SongName.Battle));
+    }
+    /*
+        End remove this after testing
+    */
+
+    private double getIntroPlaytime() {
+        return (double)introSource.timeSamples / introSource.clip.frequency;
+    }
+
+    private void Update() {
+        if (currentTrack.Main != null && currentTrack.mainDuration > 0 && introSource.isPlaying) {
+            mainSource.SetScheduledStartTime(AudioSettings.dspTime + currentTrack.introDuration - getIntroPlaytime());
+        }
+    }
 
     public IEnumerator PlaySong(SongName song) {
         // Stop the current song if any
@@ -42,22 +64,15 @@ public class MusicPlayer : MonoBehaviour {
         MusicTrack track = musicData.FetchSong(song);
         currentTrack = track;
 
+        mainSource.clip = currentTrack.Main;
+        introSource.clip = currentTrack.Intro;
+
         // If it has an intro play that first
         if (currentTrack.Intro != null) {
-            introSource.clip = currentTrack.Intro;
             introSource.Play();
-
-            // And schedule the main clip
-            double introDuration = (double)currentTrack.Intro.samples / currentTrack.Intro.frequency;
-            scheduledTime = AudioSettings.dspTime + introDuration;
-
-            mainSource.loop = true;
-            mainSource.clip = currentTrack.Main;
-            mainSource.PlayScheduled(scheduledTime);
+            mainSource.PlayScheduled(AudioSettings.dspTime + track.introDuration);
         } else {
             // Otherwise go straight to main
-            mainSource.loop = true;
-            mainSource.clip = currentTrack.Main;
             mainSource.Play();
         }
 
