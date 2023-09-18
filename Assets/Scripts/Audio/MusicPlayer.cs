@@ -28,36 +28,41 @@ public class MusicPlayer : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+        musicData.Initialize();
+        mainSource.loop = true;
     }
 
-    // private void Start() {
-    //     StartCoroutine(PlaySong(SongName.Battle));
-    // }
+    private void Start() {
+         StartCoroutine(PlaySong(SongName.Battle));
+    }
+
+    private double getIntroPlaytime() {
+        return ((double)introSource.timeSamples / introSource.clip.frequency);
+    }
+
+    private void Update() {
+        if (introSource.isPlaying) {
+            mainSource.SetScheduledStartTime(AudioSettings.dspTime + currentTrack.introDuration - getIntroPlaytime());
+        }
+    }
 
     public IEnumerator PlaySong(SongName song) {
         // Stop the current song if any
-        yield return StartCoroutine(StopCurrentSong());
+        StopCurrentSong();
 
         // Fetch the audio files
         MusicTrack track = musicData.FetchSong(song);
         currentTrack = track;
 
+        mainSource.clip = currentTrack.Main;
+        introSource.clip = currentTrack.Intro;
+
         // If it has an intro play that first
         if (currentTrack.Intro != null) {
-            introSource.clip = currentTrack.Intro;
             introSource.Play();
-
-            // And schedule the main clip
-            double introDuration = (double)currentTrack.Intro.samples / currentTrack.Intro.frequency;
-            scheduledTime = AudioSettings.dspTime + introDuration;
-
-            mainSource.loop = true;
-            mainSource.clip = currentTrack.Main;
-            mainSource.PlayScheduled(scheduledTime);
+            mainSource.PlayScheduled(AudioSettings.dspTime + track.introDuration);
         } else {
             // Otherwise go straight to main
-            mainSource.loop = true;
-            mainSource.clip = currentTrack.Main;
             mainSource.Play();
         }
 
