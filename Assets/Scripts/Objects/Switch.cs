@@ -1,20 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour {
-    public bool on = false;
+public class Switch : MonoBehaviour, IInteractable {
+    public bool On = false;
     [SerializeField] SpriteRenderer onSprite;
     [SerializeField] SpriteRenderer offSprite;
     [SerializeField] LayerMask playerLayer;
 
     private void Toggle() {
+        Debug.Log(onSprite.enabled);
+
         onSprite.enabled = !onSprite.enabled;
+        On = !On;
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (playerLayer == (playerLayer | (1 << other.gameObject.layer))) {
-            Toggle();
-        }
+    public void OnInteract() {
+        Toggle();
     }
 }
