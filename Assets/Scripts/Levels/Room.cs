@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour {
@@ -12,11 +10,10 @@ public class Room : MonoBehaviour {
     public static Action<Vector3Int> OnEnteredRoom;
     public static Action<Vector3Int> OnRoomCleared;
 
-    private void Awake() {
+    void Awake() {
         entranceTrigger.OnWalkThroughEntrance += Handle_WalkThroughEntrance;
     }
-
-    private void Handle_WalkThroughEntrance() {
+    void Handle_WalkThroughEntrance() {
         EnterRoom();
     }
 
@@ -28,5 +25,8 @@ public class Room : MonoBehaviour {
     [ContextMenu("Clear Room")]
     void RoomCleared() {
         OnRoomCleared?.Invoke(exitDoor);
+    }
+    public void CompleteRoomObjective() {
+        RoomCleared();
     }
 }
