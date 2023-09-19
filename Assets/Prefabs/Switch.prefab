@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f9e533df149bc4aac246ecd9c59f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  On: 0
   onSprite: {fileID: 2342870487038288174}
   offSprite: {fileID: 7585291425690645893}
   playerLayer:
@@ -220,7 +221,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5107094836647513592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

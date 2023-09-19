@@ -5,7 +5,15 @@ using UnityEngine;
 public class MovesWithInput : MonoBehaviour {
     [SerializeField] float moveSpeed = .125f;
 
+    public Vector2 CurrentDirection { get; private set; } = Vector2.zero;
+
     void Update() {
-        transform.position += (InputHandler.GetAnalogVectorNormalized() * moveSpeed * Time.deltaTime).ToVector3();
+        Vector2 direction = InputHandler.GetAnalogVectorNormalized();
+        transform.position += (direction * moveSpeed * Time.deltaTime).ToVector3();
+
+        // Keeps track of which direction the player is looking
+        if (direction != Vector2.zero) {
+            CurrentDirection = direction;
+        }
     }
 }

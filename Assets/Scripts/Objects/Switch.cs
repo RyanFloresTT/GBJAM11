@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour {
-    public bool on = false;
+public class Switch : MonoBehaviour, IInteractable, IPuzzleObject {
+    private bool puzzlePieceSolved = false;
+
     [SerializeField] SpriteRenderer onSprite;
     [SerializeField] SpriteRenderer offSprite;
     [SerializeField] LayerMask playerLayer;
 
+    bool IPuzzleObject.PuzzlePieceSolved => puzzlePieceSolved;
+
     private void Toggle() {
         onSprite.enabled = !onSprite.enabled;
+        puzzlePieceSolved = !puzzlePieceSolved;
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (playerLayer == (playerLayer | (1 << other.gameObject.layer))) {
-            Toggle();
-        }
+    public void OnInteract() {
+        Toggle();
     }
 }
