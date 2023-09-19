@@ -18,7 +18,7 @@ Hello and welcome to our submission for GBJAM11. We're excited to have had the o
 
 ### Team Members
 - **[Team Member 1's Name]()** - *Game Designer*
-- **[Team Member 2's Name]()** - *Graphic Designer*
+- **[Jade Lin @strawberrycongee](https://strawberrycongee.itch.io/)** - *Graphic Designer*
 - **[Emily S. Behar](https://emilysbehar.bandcamp.com)** - *Composer & Sound Designer*
 - **[Team Member 4's Name]()** - *Developer*
 - **[Ryan Flores](https://github.com/RyanFloresTT)** - *Developer*
