@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class Switch : MonoBehaviour, IInteractable {
-    public bool On = false;
+public class Switch : MonoBehaviour, IInteractable, IPuzzleObject {
+    private bool puzzlePieceSolved = false;
+
     [SerializeField] SpriteRenderer onSprite;
     [SerializeField] SpriteRenderer offSprite;
     [SerializeField] LayerMask playerLayer;
 
-    private void Toggle() {
-        Debug.Log(onSprite.enabled);
+    bool IPuzzleObject.PuzzlePieceSolved => puzzlePieceSolved;
 
+    private void Toggle() {
         onSprite.enabled = !onSprite.enabled;
-        On = !On;
+        puzzlePieceSolved = !puzzlePieceSolved;
     }
 
     public void OnInteract() {
