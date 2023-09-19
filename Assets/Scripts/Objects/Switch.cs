@@ -8,16 +8,6 @@ public class Switch : MonoBehaviour {
     [SerializeField] SpriteRenderer offSprite;
     [SerializeField] LayerMask playerLayer;
 
-    // Start is called before the first frame update
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
-
     private void Toggle() {
         onSprite.enabled = !onSprite.enabled;
     }
