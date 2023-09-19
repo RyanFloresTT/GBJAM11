@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Switch : MonoBehaviour {
-    bool on = false;
+    public bool on = false;
     [SerializeField] SpriteRenderer onSprite;
     [SerializeField] SpriteRenderer offSprite;
     [SerializeField] LayerMask playerLayer;
