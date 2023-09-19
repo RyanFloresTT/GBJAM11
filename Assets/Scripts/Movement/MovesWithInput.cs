@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovesWithInput : MonoBehaviour
-{
+public class MovesWithInput : MonoBehaviour {
     [SerializeField] float moveSpeed = .125f;
 
     void Update() {
