@@ -5,11 +5,12 @@ using System.Linq;
 public class RoomClearManager : MonoBehaviour {
     [SerializeField] private List<GameObject> requirements;
     [SerializeField] private bool solved = false;
+    [SerializeField] Room currentRoom;
 
-    // Update is called once per frame
     void Update() {
         if (!solved && CheckSolved()) {
             solved = true;
+            currentRoom.CompleteRoomObjective();
             Debug.Log("The room has been solved!! unlock them doors!");
         }
     }

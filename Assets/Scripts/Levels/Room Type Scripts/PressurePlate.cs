@@ -1,22 +1,26 @@
 using UnityEngine;
 
-public class PressurePlate : MonoBehaviour {
+public class PressurePlate : MonoBehaviour, IPuzzleObject {
 
     [SerializeField] LayerMask crateLayer;
     [SerializeField] float overlapThreshold = 0.5f;
-    [SerializeField] Room currentRoom;
+
+    bool isSolved;
 
     Collider2D plateCollider;
     Bounds plateBounds;
 
+    bool IPuzzleObject.PuzzlePieceSolved => isSolved;
+
     private void Awake() {
         plateCollider = GetComponent<Collider2D>();
         plateBounds = plateCollider.bounds;
+        isSolved = false;
     }
 
     void OnTriggerStay2D(Collider2D other) {
         if (IsCrateOverPlate(other)) {
-            currentRoom.CompleteRoomObjective();
+            isSolved = true;
         }
     }
 
