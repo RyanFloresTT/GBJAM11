@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Ryan's Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/DemoScene.unity
-    guid: 99f56a35cad0f4b47816b6258d61d3a0
+    path: Assets/Scenes/Demo Scene.unity
+    guid: ed0f211492f6b4d4994df60eef716604
   m_configObjects: {}

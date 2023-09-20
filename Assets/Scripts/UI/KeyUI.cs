@@ -8,6 +8,6 @@ public class KeyUI : MonoBehaviour {
     }
 
     void PlayerPickUpKey() {
-        Instantiate(keyIcon, gameObject.transform);
+        Instantiate(keyIcon, transform);
     }
 }
