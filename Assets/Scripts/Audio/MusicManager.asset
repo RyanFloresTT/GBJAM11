@@ -18,10 +18,8 @@ MonoBehaviour:
     introDuration: 3.283061224489796
     Main: {fileID: 8300000, guid: 4079607fa33808a4b963bf3ee879a6bf, type: 3}
     mainDuration: 52.52929705215419
-    loopSong: 1
   - Song: 1
     Intro: {fileID: 8300000, guid: 232b9cdc38cb06744b5c8f5a50fd3998, type: 3}
     introDuration: 88.64319727891156
     Main: {fileID: 8300000, guid: 93ea580b82ca6f14b914d08e1d9b521d, type: 3}
     mainDuration: 59.09548752834467
-    loopSong: 1
