@@ -17,7 +17,7 @@ Hello and welcome to our submission for GBJAM11. We're excited to have had the o
 ## The Team
 
 ### Team Members
-- **[Team Member 1's Name]()** - *Game Designer*
+- **[Max Webster](https://frogfriendmax.itch.io/)** - *Game Designer*
 - **[Jade Lin @strawberrycongee](https://strawberrycongee.itch.io/)** - *Graphic Designer*
 - **[Emily S. Behar](https://emilysbehar.bandcamp.com)** - *Composer & Sound Designer*
 - **[Team Member 4's Name]()** - *Developer*
