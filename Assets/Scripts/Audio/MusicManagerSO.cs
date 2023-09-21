@@ -8,6 +8,7 @@ public struct MusicTrack {
     public double introDuration;
     public AudioClip Main;
     public double mainDuration;
+    public bool loopSong;
 }
 
 public enum SongName {
