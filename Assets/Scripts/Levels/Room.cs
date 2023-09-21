@@ -9,7 +9,7 @@ public class Room : MonoBehaviour {
     public static Action<RoomData> OnRoomCleared;
 
     void Awake() {
-        entranceTrigger.OnWalkThroughEntrance += Handle_WalkThroughEntrance;
+        ListenForEntranceTrigger();
     }
     void Handle_WalkThroughEntrance() {
         EnterRoom();
@@ -26,5 +26,10 @@ public class Room : MonoBehaviour {
     }
     public void CompleteRoomObjective() {
         RoomCleared();
+    }
+
+    void ListenForEntranceTrigger() {
+        if (entranceTrigger == null) { return; }
+        entranceTrigger.OnWalkThroughEntrance += Handle_WalkThroughEntrance;
     }
 }
