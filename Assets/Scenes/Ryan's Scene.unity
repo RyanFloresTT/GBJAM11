@@ -1492,6 +1492,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3211943439310420537, guid: 01ea6da3a29dd8948a05b8374deeb508, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211943439310420537, guid: 01ea6da3a29dd8948a05b8374deeb508, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
@@ -1822,6 +1826,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 684842924289095472, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7847551008982128013, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1997,7 +2005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7618166320033160352, guid: 7f6ab74d3299f7f428a3eb641ec5f6b8, type: 3}
       propertyPath: m_Name
-      value: Room
+      value: Room 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
