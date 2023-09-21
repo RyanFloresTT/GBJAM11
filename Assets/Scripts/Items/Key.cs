@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 
 [RequireComponent (typeof(Collider2D))]
-public class Key : MonoBehaviour, IAmItem
-{
+public class Key : MonoBehaviour, IAmItem {
     public static Action OnPlayerPickupKey;
-    Player playerCollision;
 
     private void Start() {
         GetComponent<Collider2D>().isTrigger = true;
