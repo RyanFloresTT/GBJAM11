@@ -23,10 +23,6 @@ public class MusicManagerSO : ScriptableObject {
     [SerializeField] private List<MusicTrack> musicList;
     private bool initialized = false;
 
-    private double clipDuration(AudioClip clip) {
-        return clip.samples / clip.frequency;
-    }
-
     public void Initialize() {
         if (initialized) return;
 
@@ -39,9 +35,6 @@ public class MusicManagerSO : ScriptableObject {
 
         initialized = true;
     }
-
-    public MusicTrack FetchSong(SongName song) {
-        MusicTrack track = musicList.Find(t => t.Song == song);
-        return track;
-    }
+    private double clipDuration(AudioClip clip) => clip.samples / clip.frequency;
+    public MusicTrack FetchSong(SongName song) => musicList.Find(t => t.Song == song);
 }
