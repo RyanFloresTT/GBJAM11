@@ -14,7 +14,6 @@ public class Key : MonoBehaviour, IAmItem
     private void OnTriggerEnter2D(Collider2D collision) {
         var player = collision.gameObject.GetComponent<Player>();
         if (player == null) { return; }
-        Debug.Log('d');
         DoPickUp();
     }
 
