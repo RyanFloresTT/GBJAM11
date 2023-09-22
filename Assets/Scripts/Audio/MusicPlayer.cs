@@ -29,21 +29,6 @@ public class MusicPlayer : MonoBehaviour {
         }
         musicData.Initialize();
     }
-    
-    /*
-        Remove this after testing
-    */
-    private void Start() {
-        StartCoroutine(PlaySongAfterDelay());
-    }
-
-    private IEnumerator PlaySongAfterDelay() {
-        yield return new WaitForSeconds(5f);
-        StartCoroutine(PlaySong(SongName.Battle));
-    }
-    /*
-        End remove this after testing
-    */
 
     private double getIntroPlaytime() {
         return (double)introSource.timeSamples / introSource.clip.frequency;
