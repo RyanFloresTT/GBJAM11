@@ -8,11 +8,11 @@
   bottom: 0px;
   left: 0;
   color: #ffffff;
-  font-size: 7px;
+  font-size: 32px;
   width: 100%;
   align-items: center;
   justify-content: center;
-  height: 20px;
+  height: 16%;
   flex-direction: row;
   opacity: 0;
 }
