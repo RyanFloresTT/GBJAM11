@@ -2218,7 +2218,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2611698297508035752}
   - component: {fileID: -6998346147608216703}
-  - component: {fileID: 6971237636263467646}
   m_Layer: 0
   m_Name: Square2x2
   m_TagString: Untagged
@@ -2235,7 +2234,7 @@ Transform:
   m_GameObject: {fileID: 2372517587926151883}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2261,19 +2260,6 @@ MonoBehaviour:
   - {fileID: 3671504053061290052}
   - {fileID: 7998720231950042617}
   - {fileID: 5063813804878016343}
---- !u!114 &6971237636263467646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2372517587926151883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b218c46152c4bc644ab1e8cc8f1b5a81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rooms: []
 --- !u!1 &2556625481357106484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2378,7 @@ Transform:
   m_GameObject: {fileID: 2775172806664509235}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.51, y: 1.51, z: 0}
+  m_LocalPosition: {x: -3.53, y: 1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3722,9 +3708,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    enterDoor: {x: 0, y: 0, z: 0}
-    exitDoor: {x: 0, y: 0, z: 0}
-    cameraLocation: {fileID: 0}
+    enterDoor: {x: 4, y: 10, z: 0}
+    exitDoor: {x: 0, y: 13, z: 0}
+    cameraLocation: {fileID: 1000163439709208528}
   type: 1
   entranceTrigger: {fileID: 2213483034605864802}
 --- !u!1 &4177124637528709774
@@ -6179,9 +6165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    enterDoor: {x: 0, y: 0, z: 0}
-    exitDoor: {x: 0, y: 0, z: 0}
-    cameraLocation: {fileID: 0}
+    enterDoor: {x: 11, y: 6, z: 0}
+    exitDoor: {x: 6, y: 10, z: 0}
+    cameraLocation: {fileID: 6016144502274543660}
   type: 1
   entranceTrigger: {fileID: 2991501531861644849}
 --- !u!1 &6528807214702566098
@@ -6316,9 +6302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    enterDoor: {x: 0, y: 0, z: 0}
-    exitDoor: {x: 0, y: 0, z: 0}
-    cameraLocation: {fileID: 0}
+    enterDoor: {x: 6, y: 1, z: 0}
+    exitDoor: {x: 11, y: 4, z: 0}
+    cameraLocation: {fileID: 1369889884547599013}
   type: 2
   entranceTrigger: {fileID: 3772797987711386393}
 --- !u!1 &7906244140734017000
@@ -6529,9 +6515,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    enterDoor: {x: 0, y: 0, z: 0}
-    exitDoor: {x: 0, y: 0, z: 0}
-    cameraLocation: {fileID: 0}
+    enterDoor: {x: -5, y: 1, z: 0}
+    exitDoor: {x: 4, y: 1, z: 0}
+    cameraLocation: {fileID: 8131750820008090481}
   type: 2
   entranceTrigger: {fileID: 4552468224245239949}
 --- !u!1 &8455875878678413376
