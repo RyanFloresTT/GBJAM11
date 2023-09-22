@@ -30,11 +30,9 @@ public class TitleManager : MonoBehaviour {
 
     private void HandleStart() {
         sceneLoader.LoadScene(Scene.Demo);
-        MusicPlayer.Instance.PlaySong(SongName.Dungeon);
     }
 
     private void Start() {
-        MusicPlayer.Instance.PlaySong(SongName.Title);
         StartCoroutine(ToggleActiveClass());
     }
 
