@@ -3,15 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IHaveHealth
-{
+public class Player : MonoBehaviour, IHaveHealth, IPuzzleObject {
     public int Health { get; set; }
+    public bool HasKey { get; set; }
+
     [SerializeField] int MaxHealth;
 
     public static Action<int> OnPlayerHealthUpdate;
 
     void Start() {
         ModifyHealth(MaxHealth);
+        HasKey = false;
+        Key.OnPlayerPickupKey += Handle_PlayerPickupKey;
+    }
+
+    private void Handle_PlayerPickupKey() {
+        HasKey = true;
     }
 
     public void ModifyHealth(int h) {
@@ -27,4 +34,5 @@ public class Player : MonoBehaviour, IHaveHealth
     public void OnDeath() {
         Destroy(gameObject);
     }
+    public bool PuzzlePieceSolved => HasKey;
 }

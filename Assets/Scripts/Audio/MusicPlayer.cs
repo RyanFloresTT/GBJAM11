@@ -27,7 +27,6 @@ public class MusicPlayer : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
-
         musicData.Initialize();
     }
     private void Start() {
@@ -38,21 +37,6 @@ public class MusicPlayer : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(PlaySong(SongName.Battle));
     }
-
-    /*
-        Remove this after testing
-    */
-    /*private void Start() {
-        StartCoroutine(PlaySongAfterDelay());
-    }*/
-
-    private IEnumerator PlaySongAfterDelay() {
-        yield return new WaitForSeconds(5f);
-        StartCoroutine(PlaySong(SongName.Battle));
-    }
-    /*
-        End remove this after testing
-    */
 
     private double getIntroPlaytime() {
         return (double)introSource.timeSamples / introSource.clip.frequency;
@@ -73,6 +57,7 @@ public class MusicPlayer : MonoBehaviour {
         currentTrack = track;
 
         mainSource.clip = currentTrack.Main;
+        mainSource.loop = currentTrack.loopSong;
         introSource.clip = currentTrack.Intro;
 
         // If it has an intro play that first
