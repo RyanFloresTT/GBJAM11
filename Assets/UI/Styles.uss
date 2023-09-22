@@ -1,0 +1,22 @@
+* {
+  -unity-font: url("project://database/Assets/Art/Fonts/EarlyGameBoy.ttf");
+  -unity-font-definition: initial;
+}
+
+#title-start {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  color: #ffffff;
+  font-size: 7px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  flex-direction: row;
+  opacity: 0;
+}
+
+#title-start.active {
+  opacity: 1;
+}

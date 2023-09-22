@@ -29,14 +29,14 @@ public class MusicPlayer : MonoBehaviour {
         }
         musicData.Initialize();
     }
-    private void Start() {
-        StartCoroutine(PlaySongAfterDelay());
-    }
+    // private void Start() {
+    //     StartCoroutine(PlaySongAfterDelay());
+    // }
 
-    private IEnumerator PlaySongAfterDelay() {
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(PlaySong(SongName.Battle));
-    }
+    // private IEnumerator PlaySongAfterDelay() {
+    //     yield return new WaitForSeconds(0.5f);
+    //     StartCoroutine(PlaySong(SongName.Battle));
+    // }
 
     private double getIntroPlaytime() {
         return (double)introSource.timeSamples / introSource.clip.frequency;
@@ -48,7 +48,11 @@ public class MusicPlayer : MonoBehaviour {
         }
     }
 
-    public IEnumerator PlaySong(SongName song) {
+    public void PlaySong(SongName song) {
+        StartCoroutine(PlaySongRoutine(song));
+    }
+
+    private IEnumerator PlaySongRoutine(SongName song) {
         // Stop the current song if any
         yield return StartCoroutine(StopCurrentSong());
 

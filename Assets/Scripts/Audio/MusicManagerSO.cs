@@ -12,6 +12,8 @@ public struct MusicTrack {
 }
 
 public enum SongName {
+    Title,
+    Credits,
     Menu,
     Dungeon,
     Battle,
@@ -28,13 +30,24 @@ public class MusicManagerSO : ScriptableObject {
 
         for (int i = 0; i < musicList.Count; i++) {
             var track = musicList[i];
-            track.introDuration = clipDuration(track.Intro);
+
+            if (track.Intro == null) {
+                track.introDuration = 0;
+            } else {
+                track.introDuration = clipDuration(track.Intro);
+            }
+
             track.mainDuration = clipDuration(track.Main);
             musicList[i] = track;
         }
 
         initialized = true;
     }
-    private double clipDuration(AudioClip clip) => clip.samples / clip.frequency;
+    private double clipDuration(AudioClip clip) {
+        double duration = clip.samples / clip.frequency;
+        Debug.Log($"Clip: {clip.name}, Duration: {duration}");
+        return duration;
+    }
+
     public MusicTrack FetchSong(SongName song) => musicList.Find(t => t.Song == song);
 }
