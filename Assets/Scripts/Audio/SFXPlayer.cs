@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -8,6 +9,10 @@ public class SFXPlayer : MonoBehaviour
     [SerializeField] AudioClip playerDamage;
     [SerializeField] AudioClip roomCleared;
     [SerializeField] AudioClip newRoom;
+    [SerializeField] AudioClip basicMenu;
+    [SerializeField] AudioClip selectionMenu;
+    [SerializeField] AudioClip movingObject;
+    [SerializeField] AudioClip @switch;
 
     AudioSource sfxSource;
 
@@ -20,9 +25,27 @@ public class SFXPlayer : MonoBehaviour
         Player.OnPlayerHealthUpdate += Handle_PlayerHealthUpdated;
         Room.OnRoomCleared += Handle_RoomCleared;
         Room.OnEnteredRoom += Handle_PlayerEnteredRoom;
+        MissingShapeUI.OnPlayerUsedBasicMenu += Handle_BasicMenu;
+        MissingShapeUI.OnPlayerUsedSelectionMenu += Handle_SelectionMenu;
+        MoveableCrate.OnObjectMoved += Handle_ObjectMoved;
+        Switch.OnPlayerUsedSwitch += Handle_SwitchUsed;
     }
 
+    private void Handle_SwitchUsed() {
+        sfxSource.PlayOneShot(@switch);
+    }
 
+    private void Handle_ObjectMoved() {
+        sfxSource.PlayOneShot(selectionMenu);
+    }
+
+    private void Handle_SelectionMenu() {
+        sfxSource.PlayOneShot(selectionMenu);
+    }
+
+    private void Handle_BasicMenu() {
+        sfxSource.PlayOneShot(basicMenu);
+    } 
     private void Handle_PlayerPickupKey() {
         sfxSource.PlayOneShot(keyPickup);
     }

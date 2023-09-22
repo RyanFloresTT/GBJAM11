@@ -30,6 +30,14 @@ public class MusicPlayer : MonoBehaviour {
 
         musicData.Initialize();
     }
+    private void Start() {
+        StartCoroutine(PlaySongAfterDelay());
+    }
+
+    private IEnumerator PlaySongAfterDelay() {
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(PlaySong(SongName.Battle));
+    }
 
     /*
         Remove this after testing
