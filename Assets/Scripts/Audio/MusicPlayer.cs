@@ -39,7 +39,7 @@ public class MusicPlayer : MonoBehaviour {
     // }
 
     private double getIntroPlaytime() {
-        return (double)introSource.timeSamples / introSource.clip.frequency;
+        return (double)introSource.timeSamples / (double)introSource.clip.frequency;
     }
 
     private void Update() {
@@ -54,7 +54,8 @@ public class MusicPlayer : MonoBehaviour {
 
     private IEnumerator PlaySongRoutine(SongName song) {
         // Stop the current song if any
-        yield return StartCoroutine(StopCurrentSong());
+        mainSource.Stop();
+        introSource.Stop();
 
         // Fetch the audio files
         MusicTrack track = musicData.FetchSong(song);

@@ -23,11 +23,8 @@ public enum SongName {
 [CreateAssetMenu(fileName = "MusicManager", menuName = "ScriptableObjects/Managers/MusicManager")]
 public class MusicManagerSO : ScriptableObject {
     [SerializeField] private List<MusicTrack> musicList;
-    private bool initialized = false;
 
     public void Initialize() {
-        if (initialized) return;
-
         for (int i = 0; i < musicList.Count; i++) {
             var track = musicList[i];
 
@@ -41,13 +38,14 @@ public class MusicManagerSO : ScriptableObject {
             musicList[i] = track;
         }
 
-        initialized = true;
     }
     private double clipDuration(AudioClip clip) {
-        double duration = clip.samples / clip.frequency;
+        double duration = (double)clip.samples / (double)clip.frequency;
         Debug.Log($"Clip: {clip.name}, Duration: {duration}");
         return duration;
     }
 
-    public MusicTrack FetchSong(SongName song) => musicList.Find(t => t.Song == song);
+    public MusicTrack FetchSong(SongName song) {
+       return musicList.Find(t => t.Song == song);
+    }
 }
