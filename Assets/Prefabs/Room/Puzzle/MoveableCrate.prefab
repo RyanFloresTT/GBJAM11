@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1474481844506589464}
   - component: {fileID: 2526623421690361998}
   - component: {fileID: 3211943439310420537}
+  - component: {fileID: 4690737421121049091}
   m_Layer: 10
   m_Name: MoveableCrate
   m_TagString: Untagged
@@ -158,3 +159,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4690737421121049091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339450893533121136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dacdafd826610489ef89706badafe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSinceLastSound: 0
+  soundInterval: 1

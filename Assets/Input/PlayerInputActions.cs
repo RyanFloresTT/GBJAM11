@@ -71,6 +71,42 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up-Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""edcb0255-867b-4ea7-b095-2f76698aaf27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down-Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""53caed17-60dd-460d-ac15-a78209700e35"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left-Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""398180cc-315f-49a0-9890-882dc3388364"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right-Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""f41b08a1-0c4d-4199-b9e4-3ded5c00f185"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +208,50 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""315259dc-df39-4296-9ec8-01c0b8affd3b"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up-Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f77da893-82c9-48b4-9d8a-894935a2c846"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down-Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c17f6be5-a640-4f0e-a68e-ab679bea699d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left-Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2253d173-1301-4f94-b14f-d0106e2ad3ba"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right-Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +265,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_B = m_Player.FindAction("B", throwIfNotFound: true);
         m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
+        m_Player_UpMenu = m_Player.FindAction("Up-Menu", throwIfNotFound: true);
+        m_Player_DownMenu = m_Player.FindAction("Down-Menu", throwIfNotFound: true);
+        m_Player_LeftMenu = m_Player.FindAction("Left-Menu", throwIfNotFound: true);
+        m_Player_RightMenu = m_Player.FindAction("Right-Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +335,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_B;
     private readonly InputAction m_Player_Start;
     private readonly InputAction m_Player_Select;
+    private readonly InputAction m_Player_UpMenu;
+    private readonly InputAction m_Player_DownMenu;
+    private readonly InputAction m_Player_LeftMenu;
+    private readonly InputAction m_Player_RightMenu;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -260,6 +348,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @B => m_Wrapper.m_Player_B;
         public InputAction @Start => m_Wrapper.m_Player_Start;
         public InputAction @Select => m_Wrapper.m_Player_Select;
+        public InputAction @UpMenu => m_Wrapper.m_Player_UpMenu;
+        public InputAction @DownMenu => m_Wrapper.m_Player_DownMenu;
+        public InputAction @LeftMenu => m_Wrapper.m_Player_LeftMenu;
+        public InputAction @RightMenu => m_Wrapper.m_Player_RightMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +376,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @UpMenu.started += instance.OnUpMenu;
+            @UpMenu.performed += instance.OnUpMenu;
+            @UpMenu.canceled += instance.OnUpMenu;
+            @DownMenu.started += instance.OnDownMenu;
+            @DownMenu.performed += instance.OnDownMenu;
+            @DownMenu.canceled += instance.OnDownMenu;
+            @LeftMenu.started += instance.OnLeftMenu;
+            @LeftMenu.performed += instance.OnLeftMenu;
+            @LeftMenu.canceled += instance.OnLeftMenu;
+            @RightMenu.started += instance.OnRightMenu;
+            @RightMenu.performed += instance.OnRightMenu;
+            @RightMenu.canceled += instance.OnRightMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -303,6 +407,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @UpMenu.started -= instance.OnUpMenu;
+            @UpMenu.performed -= instance.OnUpMenu;
+            @UpMenu.canceled -= instance.OnUpMenu;
+            @DownMenu.started -= instance.OnDownMenu;
+            @DownMenu.performed -= instance.OnDownMenu;
+            @DownMenu.canceled -= instance.OnDownMenu;
+            @LeftMenu.started -= instance.OnLeftMenu;
+            @LeftMenu.performed -= instance.OnLeftMenu;
+            @LeftMenu.canceled -= instance.OnLeftMenu;
+            @RightMenu.started -= instance.OnRightMenu;
+            @RightMenu.performed -= instance.OnRightMenu;
+            @RightMenu.canceled -= instance.OnRightMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -327,5 +443,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnB(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnUpMenu(InputAction.CallbackContext context);
+        void OnDownMenu(InputAction.CallbackContext context);
+        void OnLeftMenu(InputAction.CallbackContext context);
+        void OnRightMenu(InputAction.CallbackContext context);
     }
 }

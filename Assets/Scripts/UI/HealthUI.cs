@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,10 +6,15 @@ using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
-    public GameObject healthIcon;
+    [SerializeField] GameObject healthIcon;
+    [SerializeField] Player player;
 
     void Awake() {
         Player.OnPlayerHealthUpdate += PlayerHealthUpdated;
+    }
+
+    private void OnEnable() {
+        PlayerHealthUpdated(player.Health);
     }
 
     void PlayerHealthUpdated(int health) {
