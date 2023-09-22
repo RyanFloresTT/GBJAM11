@@ -18,8 +18,9 @@ Hello and welcome to our submission for GBJAM11. We're excited to have had the o
 - **[Max Webster](https://frogfriendmax.itch.io/)** - *Game Designer*
 - **[Jade Lin @strawberrycongee](https://strawberrycongee.itch.io/)** - *Graphic Designer*
 - **[Emily S. Behar](https://emilysbehar.bandcamp.com)** - *Composer & Sound Designer*
+- **[Ryan Flores](https://github.com/RyanFloresTT)** - *Lead Developer*
 - **[Robby Klein](https://github.com/robbyklein)** - *Developer*
-- **[Ryan Flores](https://github.com/RyanFloresTT)** - *Developer*
+
 
 ## Game Design
 
