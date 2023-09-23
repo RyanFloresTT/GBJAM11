@@ -20,7 +20,7 @@ public class HealthUI : MonoBehaviour
     void PlayerHealthUpdated(int health) {
         // Can prob optimzie this better :P
         foreach (Transform child in transform) { Destroy(child.gameObject); }
-        for (int i = 0; i < health; i++) {
+        for (int i = 0; i < player.Health; i++) {
             Instantiate(healthIcon, transform);
         }
     }

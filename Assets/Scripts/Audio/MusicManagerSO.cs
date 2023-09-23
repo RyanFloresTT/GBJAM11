@@ -41,7 +41,7 @@ public class MusicManagerSO : ScriptableObject {
     }
     private double clipDuration(AudioClip clip) {
         double duration = (double)clip.samples / (double)clip.frequency;
-        Debug.Log($"Clip: {clip.name}, Duration: {duration}");
+        //Debug.Log($"Clip: {clip.name}, Duration: {duration}");
         return duration;
     }
 

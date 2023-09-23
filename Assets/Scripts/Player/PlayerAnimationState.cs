@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerAnimationState : MonoBehaviour {
@@ -9,9 +10,9 @@ public class PlayerAnimationState : MonoBehaviour {
     }
 
     [SerializeField] private Animator anim;
-    [SerializeField] private MovesWithInput movement;
-
-    private AnimationState currentState = AnimationState.IdleRight;
+    AnimationState currentState = AnimationState.IdleRight;
+    static Vector2 direction;
+    public static Vector2 Direction { get { return direction; } set {  direction = value; } }
 
     private void OnEnable() {
         InputHandler.OnBPressed += Attack;
@@ -21,8 +22,16 @@ public class PlayerAnimationState : MonoBehaviour {
         InputHandler.OnBPressed -= Attack;
     }
 
+    private void Start() {
+        Player.OnPlayerDeath += Handle_PlayerDeath;
+    }
+
+    private void Handle_PlayerDeath() {
+        anim.SetTrigger("Death");
+    }
+
     private void Update() {
-        Vector2 direction = movement.CurrentDirection;
+        direction = InputHandler.GetAnalogVector();
 
         AnimationState newState = GetStateFromDirection(direction);
 

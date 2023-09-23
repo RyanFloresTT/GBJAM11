@@ -10,6 +10,7 @@ public class Player : MonoBehaviour, IHaveHealth, IPuzzleObject {
     [SerializeField] int MaxHealth;
 
     public static Action<int> OnPlayerHealthUpdate;
+    public static Action OnPlayerDeath;
 
     void Start() {
         ModifyHealth(MaxHealth);
@@ -27,12 +28,13 @@ public class Player : MonoBehaviour, IHaveHealth, IPuzzleObject {
         } else {
             Health += h;
         }
-        OnPlayerHealthUpdate?.Invoke(Health);
+        OnPlayerHealthUpdate?.Invoke(h);
         if (Health <= 0) { OnDeath(); }
     }
 
     public void OnDeath() {
-        Destroy(gameObject);
+        OnPlayerDeath?.Invoke();
+        InputHandler.DisableMovementInput();
     }
     public bool PuzzlePieceSolved => HasKey;
 }
