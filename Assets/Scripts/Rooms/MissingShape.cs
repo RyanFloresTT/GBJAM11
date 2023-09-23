@@ -8,7 +8,6 @@ public class MissingShape : MonoBehaviour
     [SerializeField] GameObject[] compatibleShapes;
 
     public List<GameObject> CompatibleShapes { get; set; }
-
     public RoomShapes MissingRoomShape { get { return shape; } }
 
     public static Action<MissingShape> OnMissingRoomEnabled;

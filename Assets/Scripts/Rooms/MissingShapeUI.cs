@@ -39,12 +39,10 @@ public class MissingShapeUI : MonoBehaviour {
     }
     private void Handle_LeftMenu_Performed(InputAction.CallbackContext context) {
         PreviousShape();
-        OnPlayerUsedBasicMenu?.Invoke();
     }
 
     private void Handle_RightMenu_Performed(InputAction.CallbackContext context) {
         NextShape();
-        OnPlayerUsedBasicMenu?.Invoke();
     }
 
 
@@ -75,17 +73,19 @@ public class MissingShapeUI : MonoBehaviour {
         }
     }
 
-    public void NextShape() {
+    void NextShape() {
         if (shapeIndex < missingRoom.CompatibleShapes.Count - 1) {
             shapeIndex++;
             DisplayCurrentShape();
+            OnPlayerUsedBasicMenu?.Invoke();
         }
     }
 
-    public void PreviousShape() {
+     void PreviousShape() {
         if (shapeIndex > 0) {
             shapeIndex--;
-            DisplayCurrentShape(); 
+            DisplayCurrentShape();
+            OnPlayerUsedBasicMenu?.Invoke();
         }
     }
     void DisplayCurrentShape() {

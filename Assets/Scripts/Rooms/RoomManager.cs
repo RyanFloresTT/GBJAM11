@@ -17,14 +17,11 @@ public class RoomManager : MonoBehaviour
     public List<MissingShape> MissingRooms { get; set; }
 
     void Awake() {
+        Instance = this;
+        MissingRooms = new();
         MissingShape.OnMissingRoomEnabled += Handle_MissingRoomEnabled;
         Room.OnEnteredRoom += Handle_EnteredRoom;
         Room.OnRoomCleared += Handle_RoomClear;
-        MissingRooms = new();
-        Instance = this;
-    }
-
-    void Start() {
     }
 
     void Handle_MissingRoomEnabled(MissingShape missingRoom) {

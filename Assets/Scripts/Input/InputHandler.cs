@@ -42,5 +42,16 @@ public class InputHandler : MonoBehaviour
     private void OnDisable() {
         playerInput.Player.Disable();
     }
-    public static Vector2 GetAnalogVectorNormalized() => playerInput.Player.Analog.ReadValue<Vector2>();
+
+    public static void DisableMovementInput() {
+        playerInput.Player.Analog.Disable();
+    }
+
+    public static void EnableMovementInput() {
+        playerInput.Player.Analog.Enable();
+
+    }
+
+    public static Vector2 GetAnalogVectorNormalized() => playerInput.Player.Analog.ReadValue<Vector2>().normalized;
+    public static Vector2 GetAnalogVector() => playerInput.Player.Analog.ReadValue<Vector2>();
 }

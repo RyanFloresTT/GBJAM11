@@ -13,6 +13,9 @@ public class SFXPlayer : MonoBehaviour
     [SerializeField] AudioClip selectionMenu;
     [SerializeField] AudioClip movingObject;
     [SerializeField] AudioClip @switch;
+    [SerializeField] AudioClip playerDeath;
+    [SerializeField] AudioClip enemyDamage;
+    [SerializeField] AudioClip enemyDeath;
 
     AudioSource sfxSource;
 
@@ -23,12 +26,27 @@ public class SFXPlayer : MonoBehaviour
     void Awake() {
         Key.OnPlayerPickupKey += Handle_PlayerPickupKey;
         Player.OnPlayerHealthUpdate += Handle_PlayerHealthUpdated;
+        Player.OnPlayerDeath += Handle_PlayerDeath;
         Room.OnRoomCleared += Handle_RoomCleared;
         Room.OnEnteredRoom += Handle_PlayerEnteredRoom;
         MissingShapeUI.OnPlayerUsedBasicMenu += Handle_BasicMenu;
         MissingShapeUI.OnPlayerUsedSelectionMenu += Handle_SelectionMenu;
         MoveableCrate.OnObjectMoved += Handle_ObjectMoved;
         Switch.OnPlayerUsedSwitch += Handle_SwitchUsed;
+        Enemy.OnEnemyTookDamage += Handle_EnemyDamage;
+        Enemy.OnEnemyDeath += Handle_EnemyDeath;
+    }
+
+    private void Handle_EnemyDeath() {
+        sfxSource.PlayOneShot(enemyDeath);
+    }
+
+    private void Handle_EnemyDamage() {
+        sfxSource.PlayOneShot(enemyDamage);
+    }
+
+    private void Handle_PlayerDeath() {
+        sfxSource.PlayOneShot(playerDeath);
     }
 
     private void Handle_SwitchUsed() {
