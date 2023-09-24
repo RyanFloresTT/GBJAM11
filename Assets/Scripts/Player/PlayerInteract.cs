@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour {
     [SerializeField] LayerMask ignoreMask;
     [SerializeField] private MovesWithInput playerMovement;
+    [SerializeField] float interactDistance = 1f;
     private CircleCollider2D coll;
-    private float interactDistance = 0.75f;
 
     private void OnEnable() {
         InputHandler.OnAPressed += HandleInteract;

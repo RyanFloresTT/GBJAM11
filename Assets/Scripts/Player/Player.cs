@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, IHaveHealth, IPuzzleObject {
     public bool HasKey { get; set; }
 
     [SerializeField] int MaxHealth;
+    [SerializeField] SceneLoader sceneLoader;
 
     public static Action<int> OnPlayerHealthUpdate;
     public static Action OnPlayerDeath;
@@ -36,5 +37,6 @@ public class Player : MonoBehaviour, IHaveHealth, IPuzzleObject {
         OnPlayerDeath?.Invoke();
         InputHandler.DisableMovementInput();
     }
+
     public bool PuzzlePieceSolved => HasKey;
 }

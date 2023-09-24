@@ -8,11 +8,13 @@ public class Shape : MonoBehaviour
     [SerializeField] Room[] rooms;
 
     public Room[] Rooms { get { return rooms; } set { } }
-    public int TotalPoints { get; set; }
+    public int TotalPoints { get { return CountPoints(); } private set { } }
 
-    void Awake() {
+    int CountPoints() {
+        int total = 0;
         foreach (Room room in rooms) {
-            TotalPoints += PointCalculator.GetPoints(room.Type);
+            total += room.Points;
         }
+        return total;
     }
 }

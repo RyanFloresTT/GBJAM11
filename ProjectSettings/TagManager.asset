@@ -47,3 +47,6 @@ TagManager:
   - name: Player
     uniqueID: 1836785155
     locked: 0
+  - name: OpenDoors
+    uniqueID: 1396521391
+    locked: 0

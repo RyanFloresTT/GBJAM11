@@ -2,7 +2,7 @@ using UnityEngine;
 
 // This script breaks DRY, repeats what's in "HurtPlayerOnContact" script but minor tweaks.
 [RequireComponent(typeof(Collider2D))]
-public class Potion : MonoBehaviour, IAmItem  {
+public class Potion : MonoBehaviour, IAmItem {
     [SerializeField] int healAmount;
     Player playerCollision;
 

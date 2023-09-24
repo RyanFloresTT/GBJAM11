@@ -3,18 +3,17 @@ using UnityEngine;
 
 public class Room : MonoBehaviour {
     [SerializeField] RoomData data;
-    [SerializeField] RoomType type;
     [SerializeField] PlayerWalkThroughDoor entranceTrigger;
 
-    public RoomType Type { get { return type; } }
-    public int Points { get; set; }
+    public RoomType Type { get { return data.type; } }
+    public int Points { get { return ScoreHandler.CalculateScore(Type); } private set { } }
 
     public static Action<RoomData> OnEnteredRoom;
     public static Action<RoomData> OnRoomCleared;
 
     void Awake() {
         ListenForEntranceTrigger();
-        Points += PointCalculator.GetPoints(Type);
+        Points += ScoreHandler.CalculateScore(Type);
     }
     void Handle_WalkThroughEntrance() {
         EnterRoom();

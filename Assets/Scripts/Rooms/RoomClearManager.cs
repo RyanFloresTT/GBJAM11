@@ -2,10 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+[RequireComponent(typeof(Room))]
 public class RoomClearManager : MonoBehaviour {
     [SerializeField] private List<GameObject> requirements;
     [SerializeField] private bool solved = false;
-    [SerializeField] Room currentRoom;
+
+    Room currentRoom;
+
+    void Awake() {
+        currentRoom = GetComponent<Room>();
+    }
 
     void Update() {
         if (!solved && CheckSolved()) {
