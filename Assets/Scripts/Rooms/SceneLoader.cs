@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum Scene {
     Title,
-    Demo,
+    Level1,
 }
 
 [CreateAssetMenu(fileName = "SceneLoader", menuName = "SceneLoader/SceneLoader")]
@@ -22,7 +23,7 @@ public class SceneLoader : ScriptableObject {
             case Scene.Title:
                 SceneManager.LoadSceneAsync(0);
                 break;
-            case Scene.Demo:
+            case Scene.Level1:
                 SceneManager.LoadSceneAsync(1);
                 break;
         }
@@ -38,13 +39,15 @@ public class SceneLoader : ScriptableObject {
             case Scene.Title:
                 MusicPlayer.Instance.PlaySong(SongName.Title);
                 break;
-            case Scene.Demo:
+            case Scene.Level1:
                 MusicPlayer.Instance.PlaySong(SongName.Dungeon);
                 break;
         }
     }
 
     public void RestartCurrentScene() {
-        LoadScene(currentScene);
+        var currentScene = SceneManager.GetActiveScene();
+        var sceneIndex = currentScene.buildIndex;
+        SceneManager.LoadScene(sceneIndex);
     }
 }

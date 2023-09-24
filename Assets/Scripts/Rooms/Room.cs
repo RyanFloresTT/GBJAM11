@@ -5,8 +5,9 @@ public class Room : MonoBehaviour {
     [SerializeField] RoomData data;
     [SerializeField] PlayerWalkThroughDoor entranceTrigger;
 
-    public RoomType Type { get { return data.type; } }
+    public RoomType Type { get { return data.Type; } }
     public int Points { get { return ScoreHandler.CalculateScore(Type); } private set { } }
+    public RoomData Data { get { return data; } private set { } }
 
     public static Action<RoomData> OnEnteredRoom;
     public static Action<RoomData> OnRoomCleared;
@@ -19,12 +20,10 @@ public class Room : MonoBehaviour {
         EnterRoom();
     }
 
-    [ContextMenu("Enter Room")]
     void EnterRoom() {
         OnEnteredRoom?.Invoke(data);
     }
 
-    [ContextMenu("Clear Room")]
     void RoomCleared() {
         OnRoomCleared?.Invoke(data);
     }

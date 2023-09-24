@@ -1,17 +1,20 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class RoomManager : MonoBehaviour
-{
-    [SerializeField] Tilemap tiles;
-    [SerializeField] Tile closedDoorTile;
+public class RoomManager : MonoBehaviour {
+    [SerializeField] Tilemap wallTiles;
+    [SerializeField] Tilemap doorTiles;
 
     public static RoomManager Instance;
     public static Action<GameObject> OnCycleRoom;
 
     public List<MissingShape> MissingRooms { get; set; }
+
+    const float CLOSING_DELAY = 0.6f;
+    const float OPENING_DELAY = 0.5f;
 
     void Awake() {
         Instance = this;
@@ -26,24 +29,34 @@ public class RoomManager : MonoBehaviour
     }
 
     void Handle_EnteredRoom(RoomData data) {
-        CloseEntranceDoor(data.enterDoor);
-        MoveCameraToNewRoom(data.cameraLocation);
+        SetAnimatedTile(data.EnterDoorLocation, data.ClosingEntranceDoor, data.LastClosingTile, CLOSING_DELAY, true);
+        MoveCameraToNewRoom(data.CameraLocation);
         
     }
-    void CloseEntranceDoor(Vector3Int entranceDoor) {
-        tiles.SetTile(entranceDoor, closedDoorTile);
-    }
     void Handle_RoomClear(RoomData data) {
-        OpenExitDoor(data.exitDoor);
-    }
-    void OpenExitDoor(Vector3Int exitDoor) {
-        Tile emptyTile = new();
-        tiles.SetTile(exitDoor, emptyTile);
+        SetAnimatedTile(data.ExitDoorLocation, data.OpeningExitDoor, data.LastOpeningTile, OPENING_DELAY, false);
     }
     void MoveCameraToNewRoom(Transform transform) {
         Camera.main.transform.position = transform.position;
     }
-    public void UpdateTiles(Tilemap tiles) {
-        this.tiles = tiles;
+    public void UpdateTiles(Tilemap wallTiles, Tilemap doorTiles) {
+        this.wallTiles = wallTiles;
+        this.doorTiles = doorTiles;
+    }
+
+    void SetAnimatedTile(Vector3Int doorLocation, AnimatedTile doorTile, Tile lastFrame, float delay, bool isClosing) {
+        wallTiles.SetTile(doorLocation, doorTile);
+        StartCoroutine(PlaceLastFrameTileAfterDelay(doorLocation, lastFrame, delay, isClosing));
+    }
+
+    IEnumerator PlaceLastFrameTileAfterDelay(Vector3Int tileLocation, Tile lastFrame, float delay, bool isClosing) {
+        yield return new WaitForSeconds(delay);
+        if (isClosing) {
+            wallTiles.SetTile(tileLocation, lastFrame);
+        } else {
+            Tile blankTile = new();
+            wallTiles.SetTile(tileLocation, blankTile);
+            doorTiles.SetTile(tileLocation, lastFrame);
+        }
     }
 }
