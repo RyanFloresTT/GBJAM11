@@ -36,7 +36,7 @@ public class ScrollingCredits : MonoBehaviour {
 
     private void HandleStart() {
         if (timeSinceStartPressed >= 0) {
-            sceneLoader.LoadScene(Scene.Title);
+            sceneLoader.LoadScene(Scene.SoundTest);
         } else {
             timeSinceStartPressed = 0;
             ShowSkipMessage();

@@ -8,7 +8,7 @@ public class MusicPlayer : MonoBehaviour {
     public static MusicPlayer Instance { get; private set; }
 
     // Music audio data files
-    [SerializeField] private MusicManagerSO musicData;
+    [SerializeField] public MusicManagerSO musicData;
 
     // Audio sources for intro/main
     [SerializeField] private AudioSource introSource;
@@ -97,15 +97,7 @@ public class MusicPlayer : MonoBehaviour {
         yield return null;
     }
 
-    public IEnumerator StopCurrentSong() {
-        if (introSource.isPlaying) {
-            yield return StartCoroutine(FadeOut(introSource));
-        }
-
-        if (mainSource.isPlaying) {
-            yield return StartCoroutine(FadeOut(mainSource));
-        }
-
+    public void StopCurrentSong() {
         // Cancel any scheduled plays
         mainSource.Stop();
         introSource.Stop();

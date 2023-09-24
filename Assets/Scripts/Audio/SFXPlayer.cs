@@ -1,9 +1,9 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class SFXPlayer : MonoBehaviour
-{
+public class SFXPlayer : MonoBehaviour {
     [SerializeField] AudioClip keyPickup;
     [SerializeField] AudioClip healthPotion;
     [SerializeField] AudioClip playerDamage;
@@ -19,8 +19,22 @@ public class SFXPlayer : MonoBehaviour
 
     AudioSource sfxSource;
 
+    [SerializeField] private List<AudioClip> clipList;
+
     private void OnEnable() {
         sfxSource = GetComponent<AudioSource>();
+    }
+
+    public void PlayClipByIndex(int i) {
+        sfxSource.PlayOneShot(clipList[i]);
+    }
+
+    public int Clips() {
+        return clipList.Count;
+    }
+
+    public string ClipName(int i) {
+        return clipList[i].name;
     }
 
     void Awake() {

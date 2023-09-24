@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public enum Scene {
     Title,
     Demo,
+    Credits,
+    SoundTest
 }
 
 [CreateAssetMenu(fileName = "SceneLoader", menuName = "SceneLoader/SceneLoader")]
@@ -24,6 +26,12 @@ public class SceneLoader : ScriptableObject {
                 break;
             case Scene.Demo:
                 SceneManager.LoadSceneAsync(1);
+                break;
+            case Scene.Credits:
+                SceneManager.LoadSceneAsync(2);
+                break;
+            case Scene.SoundTest:
+                SceneManager.LoadSceneAsync(3);
                 break;
         }
 
