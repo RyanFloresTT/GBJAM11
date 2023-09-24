@@ -40,19 +40,19 @@ public class MusicPlayer : MonoBehaviour {
         return (double)introSource.timeSamples / (double)introSource.clip.frequency;
     }
 
-    private bool shouldScheduleMainTrack() {
+    private bool ShouldScheduleMainTrack() {
         // There is a main clip to be played, it isn't empty, it hasn't been scheduled yet, and it isn't playing.
         return (!mainSourceScheduled &&
             currentTrack.Main != null && currentTrack.mainDuration > 0 && !mainSource.isPlaying);
     }
 
-    private bool timeToScheduleMainTrack() {
+    private bool TimeToScheduleMainTrack() {
         // The intro source is playing, and we're more than halfway through it
         return (introSource.isPlaying && (introSource.timeSamples * 2 > currentTrack.Intro.samples));
     }
 
     private void Update() {
-        if (shouldScheduleMainTrack() && timeToScheduleMainTrack()) {
+        if (ShouldScheduleMainTrack() && TimeToScheduleMainTrack()) {
             mainSource.PlayScheduled(AudioSettings.dspTime + currentTrack.introDuration - GetIntroPlaytime());
             mainSourceScheduled = true;
         }

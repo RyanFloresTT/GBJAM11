@@ -12,22 +12,18 @@ public class PlayerAnimationState : MonoBehaviour {
 
     [SerializeField] private Animator anim;
     public static Vector2 Direction { get { return direction; } set { direction = value; } }
-
     AnimationState currentState = AnimationState.IdleRight;
     SpriteRenderer sprite;
     static Vector2 direction;
 
-    private void OnEnable() {
-        InputHandler.OnBPressed += Attack;
-    }
-
-    private void OnDisable() {
-        InputHandler.OnBPressed -= Attack;
-    }
-
     private void Start() {
         Player.OnPlayerDeath += Handle_PlayerDeath;
+        PlayerAttack.OnPlayerAttack += Handle_PlayerAttack;
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Handle_PlayerAttack() {
+        Attack();
     }
 
     private void Handle_PlayerDeath() {

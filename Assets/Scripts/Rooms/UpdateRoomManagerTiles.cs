@@ -4,7 +4,8 @@ using UnityEngine.Tilemaps;
 public class UpdateRoomManagerTiles : MonoBehaviour
 {
     [SerializeField] PlayerWalkThroughDoor walkThroughTrigger;
-    [SerializeField] Tilemap newTiles;
+    [SerializeField] Tilemap newWallTiles;
+    [SerializeField] Tilemap newDoorTiles;
     RoomManager roomManager;
 
     void Start() {
@@ -13,6 +14,6 @@ public class UpdateRoomManagerTiles : MonoBehaviour
     }
 
     private void Handle_WalkedThroughShape() {
-        roomManager.UpdateTiles(newTiles);
+        roomManager.UpdateTiles(newWallTiles, newDoorTiles);
     }
 }
