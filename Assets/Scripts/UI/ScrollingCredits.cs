@@ -21,6 +21,8 @@ public class ScrollingCredits : MonoBehaviour {
     private Vector3 skipTextHidePosition;
 
     private void OnEnable() {
+        music = MusicPlayer.Instance;
+
         InputHandler.OnStartPressed += HandleStart;
         InputHandler.OnAPressed += HandleStart;
         InputHandler.OnBPressed += HandleStart;
