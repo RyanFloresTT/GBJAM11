@@ -19,6 +19,7 @@ public class MusicPlayer : MonoBehaviour {
 
     // State
     private MusicTrack currentTrack;
+    private bool mainSourceScheduled = false;
 
     private void Awake() {
         if (Instance == null) {
@@ -38,9 +39,21 @@ public class MusicPlayer : MonoBehaviour {
         return (double)introSource.timeSamples / (double)introSource.clip.frequency;
     }
 
+    private bool shouldScheduleMainTrack() {
+        // There is a main clip to be played, it isn't empty, it hasn't been scheduled yet, and it isn't playing.
+        return (!mainSourceScheduled &&
+            currentTrack.Main != null && currentTrack.mainDuration > 0 && !mainSource.isPlaying);
+    }
+
+    private bool timeToScheduleMainTrack() {
+        // The intro source is playing, and we're more than halfway through it
+        return (introSource.isPlaying && (introSource.timeSamples * 2 > currentTrack.Intro.samples));
+    }
+
     private void Update() {
-        if (currentTrack.Main != null && currentTrack.mainDuration > 0 && introSource.isPlaying) {
-            mainSource.SetScheduledStartTime(AudioSettings.dspTime + currentTrack.introDuration - GetIntroPlaytime());
+        if (shouldScheduleMainTrack() && timeToScheduleMainTrack()) {
+            mainSource.PlayScheduled(AudioSettings.dspTime + currentTrack.introDuration - GetIntroPlaytime());
+            mainSourceScheduled = true;
         }
     }
 
@@ -73,9 +86,10 @@ public class MusicPlayer : MonoBehaviour {
         // If it has an intro play that first
         if (currentTrack.Intro != null) {
             introSource.Play();
-            mainSource.PlayScheduled(AudioSettings.dspTime + track.introDuration);
+            mainSourceScheduled = false;
         } else {
             // Otherwise go straight to main
+            mainSourceScheduled= true;
             mainSource.Play();
         }
 
