@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 15d4b5141c52efe4f870f29b9e07184a
+guid: fe2fee32902cf9d4db539f3c91eb085b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,43 +123,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: frog-attacks-side_0
+      name: spritesheets-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 20
-        height: 14
-      alignment: 9
-      pivot: {x: 0.6372093, y: 0.50808316}
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 590c3e5e5158c504eab5e24ab97a2f1d
-      internalID: 1218112073
+      spriteID: 568074fe959f307428360211c66e6490
+      internalID: -1273070530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog-attacks-side_1
+      name: spritesheets-Sheet_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 20
-        height: 14
-      alignment: 9
-      pivot: {x: 0.63862383, y: 0.5080831}
+        x: 16
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b367642de3a07d44db90e8963aba4030
-      internalID: -809944045
+      spriteID: 56b420671a0097e4281067b607718e95
+      internalID: 332417258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheets-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c17cc3dfdf96544aa336cf30e3ee1e5
+      internalID: 1274700458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheets-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adca09b311e1e2e4c91431d584d03e36
+      internalID: -448306889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheets-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535419461da414245a4006c93d2e6143
+      internalID: -150673582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheets-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859eb2ede5ed8a84d9f11a0944cffbd1
+      internalID: -1427872749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheets-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be731f35235c87f4c89eef6eb88323e9
+      internalID: -1091659974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheets-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e07a05c7b47a346847fa4171394297
+      internalID: -1202536670
       vertices: []
       indices: 
       edges: []
@@ -175,8 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      frog-attacks-side_0: 1218112073
-      frog-attacks-side_1: -809944045
+      spritesheets-Sheet_0: -1273070530
+      spritesheets-Sheet_1: 332417258
+      spritesheets-Sheet_2: 1274700458
+      spritesheets-Sheet_3: -448306889
+      spritesheets-Sheet_4: -150673582
+      spritesheets-Sheet_5: -1427872749
+      spritesheets-Sheet_6: -1091659974
+      spritesheets-Sheet_7: -1202536670
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,18 +34,27 @@ public class MusicPlayer : MonoBehaviour {
         PlaySong(SongName.Title);
     }
 
-    private double getIntroPlaytime() {
+    private double GetIntroPlaytime() {
         return (double)introSource.timeSamples / (double)introSource.clip.frequency;
     }
 
     private void Update() {
         if (currentTrack.Main != null && currentTrack.mainDuration > 0 && introSource.isPlaying) {
-            mainSource.SetScheduledStartTime(AudioSettings.dspTime + currentTrack.introDuration - getIntroPlaytime());
+            mainSource.SetScheduledStartTime(AudioSettings.dspTime + currentTrack.introDuration - GetIntroPlaytime());
         }
     }
 
     public void PlaySong(SongName song) {
         StartCoroutine(PlaySongRoutine(song));
+    }
+
+    private void OnLevelWasLoaded(int level) {
+       switch (level) {
+            // play main
+            case 1:
+                PlaySong(SongName.Dungeon);
+                break;
+        }
     }
 
     private IEnumerator PlaySongRoutine(SongName song) {

@@ -8,7 +8,7 @@ public class MissingShape : MonoBehaviour
     [SerializeField] GameObject[] compatibleShapes;
 
     public List<GameObject> CompatibleShapes { get; set; }
-    public RoomShapes MissingRoomShape { get { return shape; } }
+    public RoomShapes Shape { get { return shape; } }
 
     public static Action<MissingShape> OnMissingRoomEnabled;
 
@@ -17,10 +17,10 @@ public class MissingShape : MonoBehaviour
         for (int i = 0; i < compatibleShapes.Length; i++) {
             CompatibleShapes.Add(compatibleShapes[i]);
         }
-        OnMissingRoomEnabled?.Invoke(this);
     }
 
     void Start() {
+        OnMissingRoomEnabled?.Invoke(this);
     }
 
     public void SpawnInRoom(GameObject room) {

@@ -7,9 +7,6 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField] Tilemap tiles;
     [SerializeField] Tile closedDoorTile;
-    [SerializeField] GameObject[] squareRooms;
-    [SerializeField] GameObject[] lRooms;
-    [SerializeField] GameObject[] rectRooms;
 
     public static RoomManager Instance;
     public static Action<GameObject> OnCycleRoom;

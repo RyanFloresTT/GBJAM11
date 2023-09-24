@@ -15,25 +15,25 @@ MonoBehaviour:
   musicList:
   - Song: 4
     Intro: {fileID: 8300000, guid: 58b703802267498408b7044728e9a652, type: 3}
-    introDuration: 3
+    introDuration: 3.283061224489796
     Main: {fileID: 8300000, guid: 4079607fa33808a4b963bf3ee879a6bf, type: 3}
-    mainDuration: 52
+    mainDuration: 52.52929705215419
     loopSong: 0
   - Song: 3
     Intro: {fileID: 8300000, guid: 232b9cdc38cb06744b5c8f5a50fd3998, type: 3}
-    introDuration: 29
+    introDuration: 29.547732426303856
     Main: {fileID: 8300000, guid: 93ea580b82ca6f14b914d08e1d9b521d, type: 3}
-    mainDuration: 157
+    mainDuration: 157.58793650793652
     loopSong: 0
   - Song: 0
     Intro: {fileID: 0}
     introDuration: 0
     Main: {fileID: 8300000, guid: 48287fd493675214f904b3ecf5070000, type: 3}
-    mainDuration: 94
+    mainDuration: 94.49648526077098
     loopSong: 0
   - Song: 1
     Intro: {fileID: 0}
     introDuration: 0
     Main: {fileID: 8300000, guid: 6879cdb516cf47f45a13aa502cb00836, type: 3}
-    mainDuration: 94
+    mainDuration: 100.41875283446711
     loopSong: 0

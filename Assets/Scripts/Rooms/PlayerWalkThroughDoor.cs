@@ -1,10 +1,17 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class PlayerWalkThroughDoor : MonoBehaviour {
 
     [SerializeField] Directions entranceDirection;
     public Action OnWalkThroughEntrance;
+
+
+    private void Awake() {
+        var collider = GetComponent<Collider2D>();
+        collider.isTrigger = true;
+    }
 
     private void OnTriggerExit2D(Collider2D collision) {
         Vector2 exitDirection = collision.transform.position - transform.position;

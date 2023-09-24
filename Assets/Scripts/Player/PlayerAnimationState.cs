@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerAnimationState : MonoBehaviour {
     private enum AnimationState {
         IdleRight,
@@ -10,9 +11,11 @@ public class PlayerAnimationState : MonoBehaviour {
     }
 
     [SerializeField] private Animator anim;
+    public static Vector2 Direction { get { return direction; } set { direction = value; } }
+
     AnimationState currentState = AnimationState.IdleRight;
+    SpriteRenderer sprite;
     static Vector2 direction;
-    public static Vector2 Direction { get { return direction; } set {  direction = value; } }
 
     private void OnEnable() {
         InputHandler.OnBPressed += Attack;
@@ -24,6 +27,7 @@ public class PlayerAnimationState : MonoBehaviour {
 
     private void Start() {
         Player.OnPlayerDeath += Handle_PlayerDeath;
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Handle_PlayerDeath() {
@@ -86,9 +90,9 @@ public class PlayerAnimationState : MonoBehaviour {
     private void FlipSprite(bool faceRight) {
         Vector3 localScale = transform.localScale;
         if (faceRight) {
-            localScale.x = Mathf.Abs(localScale.x); // Face right
+            sprite.flipX = true;
         } else {
-            localScale.x = -Mathf.Abs(localScale.x); // Face left
+            sprite.flipX = false;
         }
         transform.localScale = localScale;
     }

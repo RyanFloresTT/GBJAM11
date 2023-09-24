@@ -24,6 +24,15 @@ public class InputHandler : MonoBehaviour
         playerInput.Player.Start.performed += Handle_Start_Pressed;
         playerInput.Player.Select.performed += Handle_Select_Pressed;
     }
+
+    private void Start() {
+        Player.OnPlayerDeath += Handle_PlayerDeath;
+    }
+
+    private void Handle_PlayerDeath() {
+        DisableMovementInput();
+    }
+
     private void Handle_A_Pressed(InputAction.CallbackContext obj) {
         OnAPressed?.Invoke();
     }

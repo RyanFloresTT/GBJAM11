@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,7 @@ using UnityEngine.InputSystem;
 public class MissingShapeUI : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI remainingText;
+    [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private GameObject iconContainer;
     [SerializeField] private GameObject encounterIcon;
     [SerializeField] private GameObject puzzleIcon;
@@ -19,6 +21,7 @@ public class MissingShapeUI : MonoBehaviour {
     MissingShape missingRoom;
     int shapeIndex;
     PlayerInputActions playerInput;
+    Shape currentShape;
 
     void OnEnable() {
         playerInput = new();
@@ -42,9 +45,9 @@ public class MissingShapeUI : MonoBehaviour {
     }
 
     private void Handle_RightMenu_Performed(InputAction.CallbackContext context) {
+        Debug.Log('h');
         NextShape();
     }
-
 
     private void Handle_A_Performed(InputAction.CallbackContext context) {
         ConfirmCurrentShape();
@@ -54,10 +57,18 @@ public class MissingShapeUI : MonoBehaviour {
     void Start() {
         roomManager = RoomManager.Instance;
         shapeIndex = 0;
+        StartCoroutine(WaitForConfig());
+        Debug.Log(missingRoom.CompatibleShapes.Count);
+    }
 
-        if (roomManager.MissingRooms.Count > 0 ) {
-            missingRoom = roomManager.MissingRooms[0];  
+    IEnumerator WaitForConfig() {
+        yield return new WaitForEndOfFrame();
+        Debug.Log("EoF");
+        if (roomManager.MissingRooms.Count > 0) {
+            missingRoom = roomManager.MissingRooms[0];
             DisplayCurrentShape();
+        } else {
+            OnPlayerFinishedChoosing?.Invoke();
         }
     }
 
@@ -91,13 +102,17 @@ public class MissingShapeUI : MonoBehaviour {
     void DisplayCurrentShape() {
         ClearContainer();
         UpdateRemainingText();
-        GameObject shapeGO = missingRoom.CompatibleShapes[shapeIndex];
-        Shape currentShape = shapeGO.GetComponent<Shape>();
+        missingRoom.CompatibleShapes[shapeIndex].TryGetComponent(out currentShape);
         if (currentShape != null) {
+            UpdatePointsText(currentShape);
             foreach (Room room in currentShape.Rooms) {
                 SpawnIconInContainer(room.Type);
             }
         }
+    }
+
+    void UpdatePointsText(Shape shape) {
+         pointsText.text = $"+{shape.TotalPoints} points";
     }
 
     void ClearContainer() {
