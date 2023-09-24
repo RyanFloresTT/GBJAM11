@@ -34,8 +34,8 @@ public class Player : MonoBehaviour, IHaveHealth, IPuzzleObject {
     }
 
     public void OnDeath() {
+        sceneLoader.RestartCurrentScene();
         OnPlayerDeath?.Invoke();
-        InputHandler.DisableMovementInput();
     }
 
     public bool PuzzlePieceSolved => HasKey;

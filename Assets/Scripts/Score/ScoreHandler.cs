@@ -15,7 +15,7 @@ public class ScoreHandler : MonoBehaviour
     }
 
     private void Handle_RoomCleared(RoomData data) {
-        Score += CalculateScore(data.type);
+        Score += CalculateScore(data.Type);
         scoreText.text = Score.ToString();
     }
 

@@ -29,7 +29,7 @@ public class TitleManager : MonoBehaviour {
     }
 
     private void HandleStart() {
-        sceneLoader.LoadScene(Scene.Demo);
+        sceneLoader.LoadScene(Scene.Level1);
     }
 
     private void Start() {

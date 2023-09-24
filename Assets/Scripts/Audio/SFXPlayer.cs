@@ -68,7 +68,7 @@ public class SFXPlayer : MonoBehaviour {
     }
 
     private void Handle_ObjectMoved() {
-        sfxSource.PlayOneShot(selectionMenu);
+        sfxSource.PlayOneShot(movingObject);
     }
 
     private void Handle_SelectionMenu() {

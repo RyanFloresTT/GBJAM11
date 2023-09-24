@@ -1,10 +1,14 @@
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour {
-    [SerializeField] LayerMask ignoreMask;
-    [SerializeField] private MovesWithInput playerMovement;
+    [SerializeField] LayerMask interactLayer;
+    [SerializeField] MovesWithInput playerMovement;
     [SerializeField] float interactDistance = 1f;
-    private CircleCollider2D coll;
+    [SerializeField] Transform interactLocation;
+    [SerializeField] float radius;
+
+    CircleCollider2D coll;
+    Vector2 attackDirection;
 
     private void OnEnable() {
         InputHandler.OnAPressed += HandleInteract;
@@ -32,12 +36,14 @@ public class PlayerInteract : MonoBehaviour {
 
     private GameObject CheckForHit() {
         // Use the layer mask in the raycast
-        RaycastHit2D hit = Physics2D.Raycast(coll.bounds.center, playerMovement.CurrentDirection, interactDistance, ~ignoreMask);
+        attackDirection = PlayerAnimationState.Direction;
+        RaycastHit2D hit = Physics2D.CircleCast(interactLocation.position, radius, attackDirection, interactDistance, interactLayer);
         Debug.DrawLine(coll.bounds.center, coll.bounds.center + (Vector3)playerMovement.CurrentDirection * interactDistance, Color.red, 1.0f);
 
         if (!hit) {
             return null;
         } else {
+            Debug.Log("hi");
             return hit.collider.gameObject;
         }
     }

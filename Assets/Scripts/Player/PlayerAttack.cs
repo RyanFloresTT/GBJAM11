@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -11,22 +11,24 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] Transform attackLocation;
 
+    float nextHitTime;
     Vector2 attackDirection;
 
-    bool inAttack;
+    public static Action OnPlayerAttack;
 
     void Awake() {
-        inAttack = false;
+        nextHitTime = 0;
         InputHandler.OnBPressed += Handle_B_Pressed;
     }
 
     void Handle_B_Pressed() {
-        if (!inAttack) { DoAttack(); }
+        if (Time.time > nextHitTime) { DoAttack(); }
     }
 
     void DoAttack() {
+        OnPlayerAttack?.Invoke();
         StartCoroutine(CheckEnemyInRange());
-        inAttack = false;
+        nextHitTime = Time.time + delay;
     }
 
     void Update() {
@@ -34,9 +36,8 @@ public class PlayerAttack : MonoBehaviour
     }
 
     IEnumerator CheckEnemyInRange() {
-        inAttack = true;
         attackDirection = PlayerAnimationState.Direction;
-        RaycastHit2D hit = Physics2D.Raycast(attackLocation.position * radius, attackDirection * range, radius, enemyLayer);
+        RaycastHit2D hit = Physics2D.CircleCast(attackLocation.position, radius ,attackDirection, range, enemyLayer);
         if (hit.collider != null) {
             Enemy hitEnemy = hit.collider.GetComponent<Enemy>();
             hitEnemy.ModifyHealth(dmg * -1);

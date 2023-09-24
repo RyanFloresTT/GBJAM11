@@ -1,59 +1,28 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Room))]
 public class MovingCamera : MonoBehaviour {
-
-    [SerializeField] Transform previousRoom;
-    [SerializeField] Transform nextRoom;
-    [SerializeField] Directions entranceDirection;
-    [SerializeField] Directions exitDirection;
     [SerializeField] AnimationCurve animationCurve;
     [SerializeField] float moveDuration;
+    [SerializeField] PlayerWalkThroughDoor trigger;
 
     float elapsedTime;
+    Transform currentRoom;
 
     void Start() {
         elapsedTime = 0;
+        currentRoom = GetComponent<Room>().Data.CameraLocation.transform;
+        trigger.OnWalkThroughEntrance += Handle_PlayerWalkThroughTrigger;
+    }
+
+    private void Handle_PlayerWalkThroughTrigger() {
+        MoveCameraTo(currentRoom.position);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-
-        Vector2 direction = collision.transform.position - transform.position;
-
-        switch (entranceDirection) {
-            case Directions.North:
-                if (direction.y <= 0) { MoveCameraTo(nextRoom.position); }
-                break;
-            case Directions.South:
-                if (direction.y >= 0) { MoveCameraTo(nextRoom.position); }
-                break;
-            case Directions.East:
-                if (direction.x <= 0) { MoveCameraTo(nextRoom.position); }
-                break;
-            case Directions.West:
-                if (direction.x >= 0) { MoveCameraTo(nextRoom.position); }
-                break;
-            default:
-                Debug.LogWarning("Direction Enum Defaulted!");
-                break;
-        }
-        switch (exitDirection) {
-            case Directions.North:
-                if (direction.y <= 0) { MoveCameraTo(previousRoom.position); }
-                break;
-            case Directions.South:
-                if (direction.y >= 0) { MoveCameraTo(previousRoom.position); }
-                break;
-            case Directions.East:
-                if (direction.x <= 0) { MoveCameraTo(previousRoom.position); }
-                break;
-            case Directions.West:
-                if (direction.x >= 0) { MoveCameraTo(previousRoom.position); }
-                break;
-            default:
-                Debug.LogWarning("Direction Enum Defaulted!");
-                break;
-        }
+        MoveCameraTo(currentRoom.position);
     }
 
     void MoveCameraTo(Vector3 roomPos) {
@@ -61,7 +30,6 @@ public class MovingCamera : MonoBehaviour {
     }
 
     private IEnumerator MoveCamera(Vector3 roomPos) {
-        Debug.Log("moving");
         elapsedTime = 0f;
 
         while (elapsedTime < moveDuration) {
