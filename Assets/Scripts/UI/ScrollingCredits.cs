@@ -21,6 +21,8 @@ public class ScrollingCredits : MonoBehaviour {
     private Vector3 skipTextHidePosition;
 
     private void OnEnable() {
+        music = MusicPlayer.Instance;
+
         InputHandler.OnStartPressed += HandleStart;
         InputHandler.OnAPressed += HandleStart;
         InputHandler.OnBPressed += HandleStart;
@@ -36,7 +38,7 @@ public class ScrollingCredits : MonoBehaviour {
 
     private void HandleStart() {
         if (timeSinceStartPressed >= 0) {
-            sceneLoader.LoadScene(Scene.Title);
+            sceneLoader.LoadScene(Scene.SoundTest);
         } else {
             timeSinceStartPressed = 0;
             ShowSkipMessage();

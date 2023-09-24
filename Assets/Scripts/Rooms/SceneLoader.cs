@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public enum Scene {
     Title,
+    Demo,
+    Credits,
+    SoundTest
     Level1,
 }
 
@@ -25,6 +28,12 @@ public class SceneLoader : ScriptableObject {
                 break;
             case Scene.Level1:
                 SceneManager.LoadSceneAsync(1);
+                break;
+            case Scene.Credits:
+                SceneManager.LoadSceneAsync(2);
+                break;
+            case Scene.SoundTest:
+                SceneManager.LoadSceneAsync(3);
                 break;
         }
 

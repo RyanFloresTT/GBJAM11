@@ -3,7 +3,19 @@ guid: 201ddb8b74c17cd46857f429e9192d28
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - keyPickup: {fileID: 8300000, guid: 653cbb5321cf22f41a38db489a902a56, type: 3}
+  - healthPotion: {fileID: 8300000, guid: 62cddae69461e784090eb0d0e012a1bc, type: 3}
+  - playerDamage: {instanceID: 0}
+  - roomCleared: {instanceID: 0}
+  - newRoom: {instanceID: 0}
+  - basicMenu: {instanceID: 0}
+  - selectionMenu: {instanceID: 0}
+  - movingObject: {instanceID: 0}
+  - switch: {instanceID: 0}
+  - playerDeath: {instanceID: 0}
+  - enemyDamage: {instanceID: 0}
+  - enemyDeath: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

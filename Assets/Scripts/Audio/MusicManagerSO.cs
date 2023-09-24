@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public struct MusicTrack {
     public SongName Song;
+    public string Name;
     public AudioClip Intro;
     public double introDuration;
     public AudioClip Main;
@@ -13,10 +14,9 @@ public struct MusicTrack {
 
 public enum SongName {
     Title,
-    Credits,
-    Menu,
     Dungeon,
     Battle,
+    Credits,
 }
 
 
@@ -47,5 +47,13 @@ public class MusicManagerSO : ScriptableObject {
 
     public MusicTrack FetchSong(SongName song) {
        return musicList.Find(t => t.Song == song);
+    }
+
+    public MusicTrack FetchSongByIndex(int songNumber) {
+        return musicList[songNumber];
+    }
+
+    public int Tracks() {
+        return musicList.Count;
     }
 }

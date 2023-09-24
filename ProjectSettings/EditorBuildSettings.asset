@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo Scene.unity
     guid: 953b4fc8126013449ba46512714c13e0
+  - enabled: 1
+    path: Assets/Scenes/Credits Scene.unity
+    guid: 3a230342c308adf42ac80d984235825b
+  - enabled: 1
+    path: Assets/Scenes/Sound Test Scene.unity
+    guid: caa1675e3bc0a3842bbebd348f7129a0
   m_configObjects: {}
