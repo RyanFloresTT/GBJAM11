@@ -49,6 +49,7 @@ public class SFXPlayer : MonoBehaviour {
         Switch.OnPlayerUsedSwitch += Handle_SwitchUsed;
         Enemy.OnEnemyTookDamage += Handle_EnemyDamage;
         Enemy.OnEnemyDeath += Handle_EnemyDeath;
+        PressurePlate.OnPressurePlateActivated += Handle_SwitchUsed;
     }
 
     private void Handle_EnemyDeath() {

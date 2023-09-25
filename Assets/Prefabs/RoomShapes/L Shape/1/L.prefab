@@ -537,8 +537,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1396521391
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3831,7 +3831,7 @@ MonoBehaviour:
     CameraLocation: {fileID: 5287689466457762259}
     ClosingEntranceDoor: {fileID: 11400000, guid: 0e43ff9703dd81944a4a94bf353f7b75, type: 2}
     LastClosingTile: {fileID: 11400000, guid: 66a35ba7164ede745b7e7dc89367c13d, type: 2}
-    OpeningExitDoor: {fileID: 11400000, guid: df66abfaca4b08f4fa8a82004fa3b626, type: 2}
+    OpeningExitDoor: {fileID: 11400000, guid: 7dafc3726dff9ea48b3a569553b0b5ef, type: 2}
     LastOpeningTile: {fileID: 11400000, guid: 6408c8dbd721ebb4795fef8afb0cbd5a, type: 2}
   entranceTrigger: {fileID: 3992245215810512239}
 --- !u!114 &7162129499757710262
