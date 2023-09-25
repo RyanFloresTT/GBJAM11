@@ -45,7 +45,13 @@ public class RoomManager : MonoBehaviour {
     }
 
     void SetAnimatedTile(Vector3Int doorLocation, AnimatedTile doorTile, Tile lastFrame, float delay, bool isClosing) {
-        wallTiles.SetTile(doorLocation, doorTile);
+        if (isClosing) {
+            Tile blankTile = new();
+            doorTiles.SetTile(doorLocation, blankTile);
+            wallTiles.SetTile(doorLocation, doorTile);
+        } else {
+            wallTiles.SetTile(doorLocation, doorTile);
+        }
         StartCoroutine(PlaceLastFrameTileAfterDelay(doorLocation, lastFrame, delay, isClosing));
     }
 

@@ -24,7 +24,7 @@ public class ScoreHandler : MonoBehaviour
             case RoomType.Puzzle:
                 return 30;
             case RoomType.Encounter:
-                return 50;
+                return 75;
             case RoomType.Potion:
                 return 15;
             default

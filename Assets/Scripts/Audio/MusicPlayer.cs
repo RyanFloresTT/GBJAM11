@@ -31,10 +31,10 @@ public class MusicPlayer : MonoBehaviour {
         musicData.Initialize();
     }
 
-    /*
+    
     private void Start() {
         PlaySong(SongName.Title);
-    }*/
+    }
 
     private double GetIntroPlaytime() {
         return (double)introSource.timeSamples / (double)introSource.clip.frequency;

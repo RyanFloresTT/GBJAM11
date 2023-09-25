@@ -15,6 +15,7 @@ public class SceneLoader : ScriptableObject {
     SceneLoad sceneLoad;
 
     public void InitSceneLoad(GameObject caller) {
+        Debug.Log("sceneLoad loaded");
         caller.TryGetComponent(out sceneLoad);
         sceneLoad.SceneLoader = this;
     }
