@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4086080677368952534}
   - component: {fileID: 6393646870728257955}
   - component: {fileID: 2902317917296514652}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints: []
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!95 &2902317917296514652
 Animator:
   serializedVersion: 5

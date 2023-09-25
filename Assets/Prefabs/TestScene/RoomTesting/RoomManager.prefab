@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca92bfaa52e073488b48e48a8f0be73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles: {fileID: 0}
-  closedDoorTile: {fileID: 11400000, guid: aee815b1d5945c9408ba5702b07fa86e, type: 2}
+  wallTiles: {fileID: 0}
+  doorTiles: {fileID: 0}

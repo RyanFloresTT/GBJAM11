@@ -2097,8 +2097,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkThroughTrigger: {fileID: 8202206368597898669}
-  newWallTiles: {fileID: 0}
-  newDoorTiles: {fileID: 0}
+  newWallTiles: {fileID: 1223132990880368242}
+  newDoorTiles: {fileID: 2283983190922199192}
 --- !u!61 &3104609296544220518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4628,12 +4628,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    EnterDoorLocation: {x: 0, y: 0, z: 0}
+    EnterDoorLocation: {x: 50, y: 10, z: 0}
     ExitDoorLocation: {x: 0, y: 0, z: 0}
     Type: 0
-    CameraLocation: {fileID: 0}
-    ClosingEntranceDoor: {fileID: 0}
-    LastClosingTile: {fileID: 0}
+    CameraLocation: {fileID: 923494217101947615}
+    ClosingEntranceDoor: {fileID: 11400000, guid: 0e43ff9703dd81944a4a94bf353f7b75, type: 2}
+    LastClosingTile: {fileID: 11400000, guid: 66a35ba7164ede745b7e7dc89367c13d, type: 2}
     OpeningExitDoor: {fileID: 0}
     LastOpeningTile: {fileID: 0}
   entranceTrigger: {fileID: 7841827054711670032}
@@ -4749,8 +4749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkThroughTrigger: {fileID: 299273267907872986}
-  newWallTiles: {fileID: 0}
-  newDoorTiles: {fileID: 0}
+  newWallTiles: {fileID: 1223132990880368242}
+  newDoorTiles: {fileID: 2283983190922199192}
 --- !u!61 &4653440910984211082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4878,14 +4878,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    EnterDoorLocation: {x: 0, y: 0, z: 0}
-    ExitDoorLocation: {x: 0, y: 0, z: 0}
+    EnterDoorLocation: {x: 0, y: 15, z: 0}
+    ExitDoorLocation: {x: 4, y: 19, z: 0}
     Type: 0
-    CameraLocation: {fileID: 0}
-    ClosingEntranceDoor: {fileID: 0}
-    LastClosingTile: {fileID: 0}
-    OpeningExitDoor: {fileID: 0}
-    LastOpeningTile: {fileID: 0}
+    CameraLocation: {fileID: 2104115446896342148}
+    ClosingEntranceDoor: {fileID: 11400000, guid: 1e400e6d7bffcab42ba37f4a33160ff1, type: 2}
+    LastClosingTile: {fileID: 11400000, guid: 2a96dde0a523b514d82ed7e4db951bf2, type: 2}
+    OpeningExitDoor: {fileID: 11400000, guid: 7dafc3726dff9ea48b3a569553b0b5ef, type: 2}
+    LastOpeningTile: {fileID: 11400000, guid: 767333d58d431a1418f07e0bd3482992, type: 2}
   entranceTrigger: {fileID: 5331007282735873872}
 --- !u!114 &1422907823904263976
 MonoBehaviour:

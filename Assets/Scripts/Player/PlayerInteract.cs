@@ -43,7 +43,6 @@ public class PlayerInteract : MonoBehaviour {
         if (!hit) {
             return null;
         } else {
-            Debug.Log("hi");
             return hit.collider.gameObject;
         }
     }

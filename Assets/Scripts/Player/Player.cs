@@ -34,7 +34,8 @@ public class Player : MonoBehaviour, IHaveHealth, IPuzzleObject {
     }
 
     public void OnDeath() {
-        sceneLoader.RestartCurrentScene();
+        sceneLoader.InitSceneLoad(gameObject);
+        sceneLoader.LoadSceneAfterDelay(Scene.Credits, 2f);
         OnPlayerDeath?.Invoke();
     }
 

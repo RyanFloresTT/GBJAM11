@@ -498,9 +498,73 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 403164113515209281, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 684842924289095472, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 684842924289095472, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 697908129911136456, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 697908129911136456, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 697908129911136456, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 945079568477723159, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 945079568477723159, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401497465418952400, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306895675878897782, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306895675878897782, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306895675878897782, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582348939398806734, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582348939398806734, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582348939398806734, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7847551008982128013, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
       propertyPath: m_Name
       value: MainUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847551008982128013, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8368385740795641500, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
       propertyPath: m_Pivot.x
@@ -582,12 +646,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8368385740795641500, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8791675385699595584, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1581664036}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2379614678364732752, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d05f2f8002a2fa47afeefbbe8e0a27b, type: 3}
@@ -682,6 +751,14 @@ PrefabInstance:
     - target: {fileID: 4823670264037657082, guid: d8bcd271b907bff4d8bc61fbb24eaa80, type: 3}
       propertyPath: m_Name
       value: PieceSelection UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443079998644078042, guid: d8bcd271b907bff4d8bc61fbb24eaa80, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443079998644078042, guid: d8bcd271b907bff4d8bc61fbb24eaa80, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

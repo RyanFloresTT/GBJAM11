@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3823921474614075407}
   - component: {fileID: 4105142287614924329}
   - component: {fileID: 1699253770407464346}
+  - component: {fileID: 8699697938573510798}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1836785155
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -846163459, guid: 41ba862d117ce2241ac3d8a60cf6199b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -182,8 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 1
   delay: 1
-  range: 5
-  radius: 1
+  range: 1
+  radius: 0.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -200,10 +201,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed03577826db4b3449de90a1b92ef9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreMask:
+  interactLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   playerMovement: {fileID: 3028005127145732157}
+  interactDistance: 0.5
+  interactLocation: {fileID: 2820627670055705341}
+  radius: 0.5
 --- !u!114 &3823921474614075407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  sceneLoader: {fileID: 11400000, guid: d739d16639908bf46a979f699378a304, type: 2}
 --- !u!95 &4105142287614924329
 Animator:
   serializedVersion: 5
@@ -251,6 +256,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4105142287614924329}
+--- !u!114 &8699697938573510798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482322888747373961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b669fac249f20d74ab26997d6d579f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6330425777661639483
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2820627670055705341}
+  - component: {fileID: 99811158890080512}
   m_Layer: 6
   m_Name: AttackLocation
   m_TagString: Untagged
@@ -282,3 +300,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 523731566401437819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99811158890080512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330425777661639483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937e9802026930949830edfd24c1f657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

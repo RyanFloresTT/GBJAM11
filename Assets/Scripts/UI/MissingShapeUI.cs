@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,7 +46,6 @@ public class MissingShapeUI : MonoBehaviour {
     }
 
     private void Handle_RightMenu_Performed(InputAction.CallbackContext context) {
-        Debug.Log('h');
         NextShape();
     }
 
@@ -62,8 +62,7 @@ public class MissingShapeUI : MonoBehaviour {
     }
 
     IEnumerator WaitForConfig() {
-        yield return new WaitForEndOfFrame();
-        Debug.Log("EoF");
+        yield return new WaitForEndOfFrame();   
         if (roomManager.MissingRooms.Count > 0) {
             missingRoom = roomManager.MissingRooms[0];
             DisplayCurrentShape();

@@ -1,18 +1,23 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+    
 public enum Scene {
     Title,
     Demo,
     Credits,
-    SoundTest
+    SoundTest,
     Level1,
 }
 
 [CreateAssetMenu(fileName = "SceneLoader", menuName = "SceneLoader/SceneLoader")]
 public class SceneLoader : ScriptableObject {
     private Scene currentScene = Scene.Title;
+    SceneLoad sceneLoad;
+
+    public void InitSceneLoad(GameObject caller) {
+        caller.TryGetComponent(out sceneLoad);
+        sceneLoad.SceneLoader = this;
+    }
 
     public void QuitGame() {
         Application.Quit();
@@ -52,6 +57,10 @@ public class SceneLoader : ScriptableObject {
                 MusicPlayer.Instance.PlaySong(SongName.Dungeon);
                 break;
         }
+    }
+
+    public void LoadSceneAfterDelay(Scene scene, float delay) {
+        sceneLoad.LoadAfterDelay(scene, delay);
     }
 
     public void RestartCurrentScene() {

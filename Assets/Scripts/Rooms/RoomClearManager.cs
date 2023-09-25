@@ -17,7 +17,6 @@ public class RoomClearManager : MonoBehaviour {
         if (!solved && CheckSolved()) {
             solved = true;
             currentRoom.CompleteRoomObjective();
-            Debug.Log("The room has been solved!! unlock them doors!");
         }
     }
 
